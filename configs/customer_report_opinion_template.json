@@ -1,0 +1,1080 @@
+{
+  "version": "20260608",
+  "source": "意见征集分析20260608.xlsx",
+  "description": "客户画像报告字段和风险明细结构配置，由意见征集分析模板结构化生成。",
+  "fields": [
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "企业名称",
+      "interface_source": "9000000206中数智汇替换融安情报工商信息照面信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000001"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "统一社会信用代码",
+      "interface_source": "9000000206中数智汇替换融安情报工商信息照面信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000001"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "法定代表人",
+      "interface_source": "9000000206中数智汇替换融安情报工商信息照面信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000001"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "注册 / 实缴资本（万元）",
+      "interface_source": "9000000206中数智汇替换融安情报工商信息照面信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000001"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "工商核准日期",
+      "interface_source": "9000000206中数智汇替换融安情报工商信息照面信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000001"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "营业期限自",
+      "interface_source": "9000000206中数智汇替换融安情报工商信息照面信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000001"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "营业期限至",
+      "interface_source": "9000000206中数智汇替换融安情报工商信息照面信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000001"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "注册地址",
+      "interface_source": "9000000206中数智汇替换融安情报工商信息照面信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000001"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "企业类型",
+      "interface_source": "9000000206中数智汇替换融安情报工商信息照面信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000001"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "企业经营状态",
+      "interface_source": "9000000206中数智汇替换融安情报工商信息照面信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000001"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "经营范围",
+      "interface_source": "9000000206中数智汇替换融安情报工商信息照面信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000001"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "国标行业",
+      "interface_source": "9000000206中数智汇替换融安情报工商信息照面信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000001"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "员工人数（人）",
+      "interface_source": "9000000206中数智汇替换融安情报工商信息照面信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000001"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "社保人数（人）",
+      "interface_source": "9000000266中数智汇替换融安e信情报年报-社保信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000002"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "企业规模",
+      "interface_source": "9000000267中数智汇替换融安e信情报企业标签信息-企业规模",
+      "remark": "",
+      "interface_codes": [
+        "9000000003"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "基础信息",
+      "name": "变更记录",
+      "interface_source": "9000000213中数智汇替换融安e信情报工商信息变更信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000004"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "企业评级及标签认证",
+      "name": "有效专利（发明专利）数量",
+      "interface_source": "9000000509中数智汇-专利信息查询(大报文)",
+      "remark": "",
+      "interface_codes": [
+        "9000000008"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "企业评级及标签认证",
+      "name": "企业认证",
+      "interface_source": "9000000267中数智汇替换融安e信情报企业标签信息-企业规模",
+      "remark": "",
+      "interface_codes": [
+        "9000000003"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "企业评级及标签认证",
+      "name": "是否绿色产业",
+      "interface_source": "9000000506中数智汇-企业综合画像查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000006"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "企业评级及标签认证",
+      "name": "是否纳入小微企业目录",
+      "interface_source": "9000000506中数智汇-企业综合画像查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000006"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "企业评级及标签认证",
+      "name": "信用评级",
+      "interface_source": "9000000506中数智汇-企业综合画像查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000006"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "企业评级及标签认证",
+      "name": "荣誉榜单",
+      "interface_source": "9000000506中数智汇-企业综合画像查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000006"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "企业评级及标签认证",
+      "name": "中知数通科技力评分/分层结果",
+      "interface_source": "",
+      "remark": "目前通过大数据风控部署规则，接口号4012001722",
+      "interface_codes": []
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "企业评级及标签认证",
+      "name": "科技资质情况",
+      "interface_source": "",
+      "remark": "目前通过大数据风控部署规则，接口号4012001722",
+      "interface_codes": []
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "企业评级及标签认证",
+      "name": "税务评级",
+      "interface_source": "9000000245中数智汇替换融安e信情报评价信息税务评价查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000005"
+      ]
+    },
+    {
+      "module": "客户全貌",
+      "submodule": "企业评级及标签认证",
+      "name": "海关信用等级",
+      "interface_source": "9000000507中数智汇-海关进出口信用信息查询(大报文)",
+      "remark": "",
+      "interface_codes": [
+        "9000000007"
+      ]
+    },
+    {
+      "module": "经营能力",
+      "submodule": "企业招投标信息",
+      "name": "企业招投标信息",
+      "interface_source": "9000000223中数智汇替换融安e信情报经营信息招投标查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000019"
+      ]
+    },
+    {
+      "module": "经营能力",
+      "submodule": "抵质押与融资",
+      "name": "动产抵押",
+      "interface_source": "9000000023 中数智汇替换融安e信情报抵质押信息动产抵押登记信息查询\n9000000234 中数智汇替换融安e信情报抵质押信息动产抵押变更信息查询\n9000000235 中数智汇替换融安e信情报抵质押信息动产抵押注销信息查询\n9000000236 中数智汇替换融安e信情报抵质押信息动产抵押被担保主债权信息查询\n9000000237 中数智汇替换融安e信情报抵质押信息动产抵押抵押物信息查询\n9000000238 中数智汇替换融安e信情报抵质押信息动产抵押抵押人信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000023",
+        "9000000024",
+        "9000000025",
+        "9000000026",
+        "9000000027",
+        "9000000028"
+      ]
+    },
+    {
+      "module": "经营能力",
+      "submodule": "抵质押与融资",
+      "name": "股权出质",
+      "interface_source": "9000000020 中数智汇替换融安e信情报抵质押信息股权出质基本信息查询\n9000000231 中数智汇替换融安e信情报抵质押信息股权出质变更信息查询\n9000000232 中数智汇替换融安e信情报抵质押信息股权出质注销信息查询",
+      "remark": "",
+      "interface_codes": [
+        "9000000020",
+        "9000000021",
+        "9000000022"
+      ]
+    },
+    {
+      "module": "经营能力",
+      "submodule": "抵质押与融资",
+      "name": "融资情况",
+      "interface_source": "9000000029 中数智汇-企业投融资查询（大报文）",
+      "remark": "",
+      "interface_codes": [
+        "9000000029"
+      ]
+    },
+    {
+      "module": "财务分析",
+      "submodule": "利润表",
+      "name": "营业收入",
+      "interface_source": "9000000018 中数智汇-企业查询年报信息 AstSituBsnsTotIncm",
+      "remark": "",
+      "interface_codes": ["9000000018"]
+    },
+    {
+      "module": "财务分析",
+      "submodule": "利润表",
+      "name": "营业成本",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "利润表",
+      "name": "销售费用",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "利润表",
+      "name": "管理费用",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "利润表",
+      "name": "研发费用",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "利润表",
+      "name": "财务费用",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "利润表",
+      "name": "投资收益",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "利润表",
+      "name": "资产减值损失",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "利润表",
+      "name": "营业利润",
+      "interface_source": "",
+      "remark": "衍生：营收-成本-费用",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "利润表",
+      "name": "利润总额",
+      "interface_source": "9000000018 中数智汇-企业查询年报信息 AstSituPrftTotAmt",
+      "remark": "",
+      "interface_codes": ["9000000018"]
+    },
+    {
+      "module": "财务分析",
+      "submodule": "利润表",
+      "name": "净利润",
+      "interface_source": "9000000018 中数智汇-企业查询年报信息 AstSituNetPrft",
+      "remark": "",
+      "interface_codes": ["9000000018"]
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "流动资产合计",
+      "interface_source": "",
+      "remark": "汇总项",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "货币资金",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "交易性金融资产",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "应收票据",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "应收账款",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "其他应收款",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "存货",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "资产总计",
+      "interface_source": "9000000018 中数智汇-企业查询年报信息 AstSituAstTotAmt",
+      "remark": "",
+      "interface_codes": ["9000000018"]
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "可供出售金融资产",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "长期股权投资",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "固定资产",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "在建工程",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "无形资产",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "商誉",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "流动负债合计",
+      "interface_source": "",
+      "remark": "汇总项",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "短期借款",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "应付票据",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "应付账款",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "预收款项/合同负债",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "应交税费",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "非流动负债合计",
+      "interface_source": "",
+      "remark": "汇总项",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "长期借款",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "应付债券",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "预计负债",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "负债合计",
+      "interface_source": "9000000018 中数智汇-企业查询年报信息 AstSituLbyTotAmt",
+      "remark": "",
+      "interface_codes": ["9000000018"]
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "所有者权益合计",
+      "interface_source": "9000000018 中数智汇-企业查询年报信息 AstSituOwnrEqtTot",
+      "remark": "",
+      "interface_codes": ["9000000018"]
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "实收资本/股本",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "资本公积",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "资产负债表",
+      "name": "未分配利润",
+      "interface_source": "",
+      "remark": "接口待定",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "现金流量表",
+      "name": "期初现金及现金等价物余额",
+      "interface_source": "",
+      "remark": "行内CRM CcmCashVO.beginCashBal，待接入",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "现金流量表",
+      "name": "经营活动现金流入小计",
+      "interface_source": "",
+      "remark": "行内CRM CcmCashVO.businessInflowTotal，待接入",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "现金流量表",
+      "name": "经营活动现金流出小计",
+      "interface_source": "",
+      "remark": "行内CRM CcmCashVO.businessOutflowTotal，待接入",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "现金流量表",
+      "name": "经营活动现金流量净额",
+      "interface_source": "",
+      "remark": "行内CRM CcmCashVO.businessCashBal，待接入",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "现金流量表",
+      "name": "投资活动现金流入小计",
+      "interface_source": "",
+      "remark": "行内CRM CcmCashVO.investInflowTotal，待接入",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "现金流量表",
+      "name": "投资活动现金流出小计",
+      "interface_source": "",
+      "remark": "行内CRM CcmCashVO.investOutflowTotal，待接入",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "现金流量表",
+      "name": "投资活动现金流量净额",
+      "interface_source": "",
+      "remark": "行内CRM CcmCashVO.investCashBal，待接入",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "现金流量表",
+      "name": "募集活动现金流入小计",
+      "interface_source": "",
+      "remark": "行内CRM CcmCashVO.raiseInflowTotal，待接入",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "现金流量表",
+      "name": "募集活动现金流出小计",
+      "interface_source": "",
+      "remark": "行内CRM CcmCashVO.raiseOutflowTotal，待接入",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "现金流量表",
+      "name": "募集活动现金流量净额",
+      "interface_source": "",
+      "remark": "行内CRM CcmCashVO.raiseCashBal，待接入",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "现金流量表",
+      "name": "现金及现金等价物净增加额",
+      "interface_source": "",
+      "remark": "行内CRM CcmCashVO.netGrowthBal，待接入",
+      "interface_codes": []
+    },
+    {
+      "module": "财务分析",
+      "submodule": "现金流量表",
+      "name": "期末现金及现金等价物余额",
+      "interface_source": "",
+      "remark": "行内CRM CcmCashVO.endCashBal，待接入",
+      "interface_codes": []
+    },
+    {
+      "module": "风险提示",
+      "submodule": "涉诉信息",
+      "name": "执行风险",
+      "interface_source": "9000000041 中数智汇替换融安e信风险失信执行信息按企业查询",
+      "remark": "",
+      "interface_codes": ["9000000041"]
+    },
+    {
+      "module": "风险提示",
+      "submodule": "涉诉信息",
+      "name": "限制高消费",
+      "interface_source": "9000000039 中数智汇替换融安e信风险涉诉限制消费被执行人查询",
+      "remark": "",
+      "interface_codes": ["9000000039"]
+    },
+    {
+      "module": "风险提示",
+      "submodule": "失信记录",
+      "name": "失信执行人",
+      "interface_source": "9000000040 中数智汇替换融安e信风险失信失信被执行人按企业信息查询",
+      "remark": "",
+      "interface_codes": ["9000000040"]
+    }
+  ],
+  "risk_detail_tables": [
+    {
+      "category": "1、涉诉信息",
+      "title": "1）执行信息（执行信息（企业）：9000000041）",
+      "headers": [
+        "被执行人名称",
+        "案件状态",
+        "案号",
+        "申请执行标的（元）",
+        "执行法院",
+        "立案时间"
+      ],
+      "interface_codes": [
+        "9000000041"
+      ]
+    },
+    {
+      "category": "1、涉诉信息",
+      "title": "2）开庭公告（开庭公告 \"9000000037、9000000060\"）",
+      "headers": [
+        "案由",
+        "案号",
+        "开庭日期",
+        "当事人"
+      ],
+      "interface_codes": [
+        "9000000037",
+        "9000000060"
+      ]
+    },
+    {
+      "category": "1、涉诉信息",
+      "title": "3）法院公告（法院公告 9000000038）",
+      "headers": [
+        "当事人",
+        "公告日期",
+        "公告类型",
+        "公告人"
+      ],
+      "interface_codes": [
+        "9000000038"
+      ]
+    },
+    {
+      "category": "1、涉诉信息",
+      "title": "4）限制高消费（限制消费被执行人 9000000039）",
+      "headers": [
+        "判决案号",
+        "发布日期",
+        "立案日期",
+        "被执行人",
+        "执行法院",
+        "组织机构代码",
+        "是否有效"
+      ],
+      "interface_codes": [
+        "9000000039"
+      ]
+    },
+    {
+      "category": "1、涉诉信息",
+      "title": "5）终本案件（终本案件 9000000055）",
+      "headers": [
+        "案号",
+        "案件状态",
+        "未履行金额",
+        "终本日期",
+        "是否有效"
+      ],
+      "interface_codes": [
+        "9000000055"
+      ]
+    },
+    {
+      "category": "2、失信记录",
+      "title": "1）失信执行人（失信执行人（企业）：9000000040）",
+      "headers": [
+        "案号",
+        "立案时间",
+        "被执行人的履行情况",
+        "执行法院",
+        "案件状态"
+      ],
+      "interface_codes": [
+        "9000000040"
+      ]
+    },
+    {
+      "category": "2、失信记录",
+      "title": "2）工商失信（工商失信 9000000042）",
+      "headers": [
+        "列入机关",
+        "列入文号",
+        "数据日期",
+        "列入原因"
+      ],
+      "interface_codes": [
+        "9000000042"
+      ]
+    },
+    {
+      "category": "2、失信记录",
+      "title": "3）海关失信（海关失信 9000000043）",
+      "headers": [
+        "企业中文名称",
+        "注册地址",
+        "法人代表",
+        "组织机构代码",
+        "首次注册日期"
+      ],
+      "interface_codes": [
+        "9000000043"
+      ]
+    },
+    {
+      "category": "2、失信记录",
+      "title": "4）电商失信（电商失信 9000000045）",
+      "headers": [
+        "失信领域",
+        "组织机构代码",
+        "工商注册号",
+        "统一信用代码"
+      ],
+      "interface_codes": [
+        "9000000045"
+      ]
+    },
+    {
+      "category": "2、失信记录",
+      "title": "5）检疫失信（检疫失信 9000000046）",
+      "headers": [
+        "如有检疫失信，展示接口返回结果，如无默认展示“该企业未被列入检疫失信名单”",
+        "如有检疫失信，展示接口返回结果，如无默认展示“该企业未被列入检疫失信名单”",
+        "如有检疫失信，展示接口返回结果，如无默认展示“该企业未被列入检疫失信名单”",
+        "如有检疫失信，展示接口返回结果，如无默认展示“该企业未被列入检疫失信名单”",
+        "如有检疫失信，展示接口返回结果，如无默认展示“该企业未被列入检疫失信名单”",
+        "如有检疫失信，展示接口返回结果，如无默认展示“该企业未被列入检疫失信名单”",
+        "如有检疫失信，展示接口返回结果，如无默认展示“该企业未被列入检疫失信名单”",
+        "如有检疫失信，展示接口返回结果，如无默认展示“该企业未被列入检疫失信名单”"
+      ],
+      "interface_codes": [
+        "9000000046"
+      ]
+    },
+    {
+      "category": "2、失信记录",
+      "title": "6）采购失信（采购失信 9000000044）",
+      "headers": [
+        "企业名称",
+        "处罚日期",
+        "处罚依据",
+        "单位",
+        "处罚结果"
+      ],
+      "interface_codes": [
+        "9000000044"
+      ]
+    },
+    {
+      "category": "3、处罚信息",
+      "title": "1）税务处罚（税务处罚 9000000047）",
+      "headers": [
+        "纳税人名称",
+        "纳税人识别码",
+        "违法事实及处罚情况",
+        "认定日期或所属日期",
+        "黑名单类型",
+        "管理或征管机关"
+      ],
+      "interface_codes": [
+        "9000000047"
+      ]
+    },
+    {
+      "category": "3、处罚信息",
+      "title": "2）重大税收违法（税收违法 9000000048）",
+      "headers": [
+        "纳税人登记名称",
+        "纳税人识别号",
+        "案件性质"
+      ],
+      "interface_codes": [
+        "9000000048"
+      ]
+    },
+    {
+      "category": "3、处罚信息",
+      "title": "3）行政处罚（行政处罚    9000000049）",
+      "headers": [
+        "处罚决定文书",
+        "处罚状态",
+        "处罚日期",
+        "处罚机关"
+      ],
+      "interface_codes": [
+        "9000000049"
+      ]
+    },
+    {
+      "category": "3、处罚信息",
+      "title": "4）环保处罚（环保处罚 9000000079）",
+      "headers": [
+        "发文名称",
+        "处罚金额",
+        "发布机关",
+        "文号"
+      ],
+      "interface_codes": [
+        "9000000079"
+      ]
+    },
+    {
+      "category": "3、处罚信息",
+      "title": "5）环保违法违规（环保处罚 9000000050）",
+      "headers": [
+        "企业名称",
+        "决定书号",
+        "处罚原因",
+        "处罚结果"
+      ],
+      "interface_codes": [
+        "9000000050"
+      ]
+    },
+    {
+      "category": "4、经营风险",
+      "title": "1）清算信息（中数智汇-企业风险大数据查询（大报文）  9000000056）",
+      "headers": [
+        "清算负责人",
+        "清算组成员"
+      ],
+      "interface_codes": [
+        "9000000056"
+      ]
+    },
+    {
+      "category": "4、经营风险",
+      "title": "2）司法协助（司法协助    9000000052）",
+      "headers": [
+        "被执行人",
+        "股权数额",
+        "执行法院",
+        "协助公示通知书文号",
+        "股权冻结状态",
+        "币种"
+      ],
+      "interface_codes": [
+        "9000000052"
+      ]
+    },
+    {
+      "category": "4、经营风险",
+      "title": "3）经营异常（经营异常 9000000051）",
+      "headers": [
+        "企业名称",
+        "列入日期",
+        "列入原因",
+        "有效标志"
+      ],
+      "interface_codes": [
+        "9000000051"
+      ]
+    },
+    {
+      "category": "4、经营风险",
+      "title": "4）安全黑名单（安全黑名单 9000000080）",
+      "headers": [
+        "单位名称",
+        "统一社会信用代码",
+        "纳入理由",
+        "失信行为简况"
+      ],
+      "interface_codes": [
+        "9000000080"
+      ]
+    },
+    {
+      "category": "4、经营风险",
+      "title": "5）监管处罚（监管处罚 9000000054）",
+      "headers": [
+        "文书编号",
+        "处罚机构",
+        "被处罚单位",
+        "处罚事由",
+        "处罚金额（万元）",
+        "处罚结果",
+        "登记时间",
+        "公布时间"
+      ],
+      "interface_codes": [
+        "9000000054"
+      ]
+    },
+    {
+      "category": "5、金融风险",
+      "title": "1）涉金黑名单（金融风控（涉金黑名单） 9000000053）",
+      "headers": [
+        "罪名",
+        "案号",
+        "判决作出机构"
+      ],
+      "interface_codes": [
+        "9000000053"
+      ]
+    }
+  ],
+  "risk_warning_levels": {
+    "9000000035": "green",
+    "9000000036": "green",
+    "9000000037": "green",
+    "9000000060": "green",
+    "9000000038": "green",
+    "9000000039": "green",
+    "9000000040": "green",
+    "9000000041": "green",
+    "9000000042": "red",
+    "9000000043": "red",
+    "9000000044": "green",
+    "9000000045": "green",
+    "9000000046": "green",
+    "9000000047": "green",
+    "9000000048": "red",
+    "9000000049": "green",
+    "9000000050": "green",
+    "9000000051": "red",
+    "9000000052": "green",
+    "9000000053": "red",
+    "9000000054": "red",
+    "9000000055": "red"
+  }
+}

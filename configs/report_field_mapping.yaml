@@ -1,0 +1,1233 @@
+# ================================================================
+# 9大模块字段映射台账 (v1.1 - 真实ESB响应路径版)
+# 数据源: app/services.py 代码实现 + llm-standalone/configs/report_metric_mapping.yaml
+# ================================================================
+# source_type 枚举: 行外-中数智汇 | 行外-年报 | 行内-CRM | AI生成 | 规则生成 | 待定
+# status      枚举: 已接入 | 部分接入 | 待接入 | 待确认 | 待补充
+# compute     枚举: direct | first_non_empty | recursive_first | recursive_count | count_nonzero | multi_array_count | latest_by_year | join_by_key | derived | manual_confirm
+# verified_by 枚举: current_code | current_code_partial | pending_bank_confirm | guessed
+# ================================================================
+
+version: "1.2"
+
+modules:
+  # ==============================================================
+  # 01 - AI综合智能分析建议 (LLM生成, 无固定字段映射)
+  # ==============================================================
+  - id: ai_summary
+    name: AI综合智能分析建议
+    order: 1
+    fields: []
+
+  # ==============================================================
+  # 02 - 客户全貌 (旧模板: 客户全貌 + 触达路径)
+  # ==============================================================
+  - id: basic
+    name: 客户全貌
+    order: 2
+    fields:
+      # --- 基础信息 (接口: 9000000001 工商照面) ---
+      - key: company_name
+        submodule: 基础信息
+        label: 企业名称
+        source_type: 行外-中数智汇
+        interface_code: "9000000001"
+        response_path: BODY.QryRsltArry[].EntpBscInfArry[].EntpNm
+        table_key: null
+        status: 已接入
+        compute: first_non_empty
+        verified_by: current_code
+        aliases:
+          - BODY.QryRsltArry[].EntpBsicInfArry[].EntpNm
+        fallback: 企业名称暂不可用
+
+      - key: credit_code
+        submodule: 基础信息
+        label: 统一社会信用代码
+        source_type: 行外-中数智汇
+        interface_code: "9000000001"
+        response_path: BODY.QryRsltArry[].EntpBscInfArry[].USCC
+        table_key: null
+        status: 已接入
+        compute: first_non_empty
+        verified_by: current_code
+        aliases:
+          - BODY.QryRsltArry[].EntpBsicInfArry[].USCC
+        fallback: 统一社会信用代码暂不可用
+
+      - key: legal_person
+        submodule: 基础信息
+        label: 法定代表人
+        source_type: 行外-中数智汇
+        interface_code: "9000000001"
+        response_path: BODY.QryRsltArry[].EntpBscInfArry[].EntpLglRprsNm
+        table_key: null
+        status: 已接入
+        compute: first_non_empty
+        verified_by: current_code
+        aliases:
+          - BODY.QryRsltArry[].EntpBsicInfArry[].EntpLglRprsNm
+        fallback: 法定代表人信息暂不可用
+
+      - key: registered_capital
+        submodule: 基础信息
+        label: 注册 / 实缴资本（万元）
+        source_type: 行外-中数智汇
+        interface_code: "9000000001"
+        response_path: BODY.QryRsltArry[].EntpBscInfArry[].RgstCpitl
+        table_key: null
+        status: 已接入
+        compute: first_non_empty
+        verified_by: current_code
+        aliases:
+          - BODY.QryRsltArry[].EntpBsicInfArry[].RgstCpitl
+        fallback: 注册资本暂不可用
+
+      - key: approval_date
+        submodule: 基础信息
+        label: 工商核准日期
+        source_type: 行外-中数智汇
+        interface_code: "9000000001"
+        response_path: BODY.QryRsltArry[].EntpBscInfArry[].EntpAprvDt
+        table_key: null
+        status: 已接入
+        compute: first_non_empty
+        verified_by: current_code
+        aliases:
+          - BODY.QryRsltArry[].EntpBsicInfArry[].EntpAprvDt
+        fallback: 工商核准日期暂不可用
+
+      - key: business_term_begin
+        submodule: 基础信息
+        label: 营业期限（起）
+        source_type: 行外-中数智汇
+        interface_code: "9000000001"
+        response_path: BODY.QryRsltArry[].EntpBscInfArry[].CrpnTrmBeg
+        table_key: null
+        status: 已接入
+        compute: first_non_empty
+        verified_by: current_code
+        aliases:
+          - BODY.QryRsltArry[].EntpBsicInfArry[].CrpnTrmBeg
+        fallback: 营业期限暂不可用
+
+      - key: business_term_end
+        submodule: 基础信息
+        label: 营业期限（止）
+        source_type: 行外-中数智汇
+        interface_code: "9000000001"
+        response_path: BODY.QryRsltArry[].EntpBscInfArry[].CrpnTrmTo
+        table_key: null
+        status: 已接入
+        compute: first_non_empty
+        verified_by: current_code
+        aliases:
+          - BODY.QryRsltArry[].EntpBsicInfArry[].CrpnTrmTo
+        fallback: 营业期限暂不可用
+
+      - key: address
+        submodule: 基础信息
+        label: 注册地址
+        source_type: 行外-中数智汇
+        interface_code: "9000000001"
+        response_path: BODY.QryRsltArry[].EntpBscInfArry[].Addr
+        table_key: null
+        status: 已接入
+        compute: first_non_empty
+        verified_by: current_code
+        aliases:
+          - BODY.QryRsltArry[].EntpBsicInfArry[].Addr
+        fallback: 注册地址暂不可用
+
+      - key: company_type
+        submodule: 基础信息
+        label: 企业类型
+        source_type: 行外-中数智汇
+        interface_code: "9000000001"
+        response_path: BODY.QryRsltArry[].EntpBscInfArry[].EntpTp
+        table_key: null
+        status: 已接入
+        compute: first_non_empty
+        verified_by: current_code
+        aliases:
+          - BODY.QryRsltArry[].EntpBsicInfArry[].EntpTp
+        fallback: 企业类型暂不可用
+
+      - key: company_status
+        submodule: 基础信息
+        label: 企业经营状态
+        source_type: 行外-中数智汇
+        interface_code: "9000000001"
+        response_path: BODY.QryRsltArry[].EntpBscInfArry[].EntpCrpnSt
+        table_key: null
+        status: 已接入
+        compute: first_non_empty
+        verified_by: current_code
+        aliases:
+          - BODY.QryRsltArry[].EntpBsicInfArry[].EntpCrpnSt
+        fallback: 企业经营状态暂不可用
+
+      - key: business_scope
+        submodule: 基础信息
+        label: 经营范围
+        source_type: 行外-中数智汇
+        interface_code: "9000000001"
+        response_path: BODY.QryRsltArry[].EntpBscInfArry[].CrpnBsnScop
+        table_key: null
+        status: 已接入
+        compute: first_non_empty
+        verified_by: current_code
+        aliases:
+          - BODY.QryRsltArry[].EntpBsicInfArry[].CrpnBsnScop
+        fallback: 经营范围暂不可用
+
+      - key: industry
+        submodule: 基础信息
+        label: 国标行业
+        source_type: 行外-中数智汇
+        interface_code: "9000000001"
+        response_path: BODY.QryRsltArry[].EntpBscInfArry[].IdyNm
+        table_key: null
+        status: 已接入
+        compute: first_non_empty
+        verified_by: current_code
+        aliases:
+          - BODY.QryRsltArry[].EntpBsicInfArry[].IdyNm
+        fallback: 行业信息暂不可用
+
+      - key: employee_count
+        submodule: 基础信息
+        label: 员工人数（人）
+        source_type: 行外-中数智汇
+        interface_code: "9000000001"
+        response_path: BODY.QryRsltArry[].EntpBscInfArry[].StfPplCnt
+        table_key: null
+        status: 已接入
+        compute: first_non_empty
+        verified_by: current_code
+        aliases:
+          - BODY.QryRsltArry[].EntpBsicInfArry[].StfPplCnt
+        fallback: 员工人数暂不可用
+
+      - key: social_security_count
+        submodule: 基础信息
+        label: 社保人数（人）
+        source_type: 行外-中数智汇
+        interface_code: "9000000002"
+        response_path: BODY.QryRsltArry[].DataArry[].TownStfBscPnsnInsunPIPC
+        table_key: null
+        compute: first_non_empty
+        verified_by: current_code
+        aliases:
+          - BODY.QryRsltArry[].DataArry[].StfBscMdclInsunPIPC
+        status: 已接入
+        fallback: 社保人数暂不可用
+
+      - key: company_scale
+        submodule: 基础信息
+        label: 企业规模
+        source_type: 行外-中数智汇
+        interface_code: "9000000003"
+        response_path: BODY.QryRsltArry[].A02RspStruct.EntpScl
+        table_key: null
+        compute: first_non_empty
+        verified_by: current_code
+        status: 已接入
+        fallback: 企业规模暂不可用
+
+      - key: change_records
+        submodule: 基础信息
+        label: 变更记录
+        source_type: 行外-中数智汇
+        interface_code: "9000000004"
+        response_path: BODY.QryRsltArry[].MdfInfArry[]
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code_partial
+        source_arrays:
+          - MdfInfArry
+          - DataArry
+          - CrnPgDataArry
+        notes: renderer 还支持 DataArry、CrnPgDataArry 作为 fallback
+        status: 已接入
+        fallback: 变更记录暂不可用
+
+      # --- 企业评级及标签认证 ---
+      - key: patent_count
+        submodule: 企业评级及标签认证
+        label: 有效专利（发明专利）数量
+        source_type: 行外-中数智汇
+        interface_code: "9000000008"
+        response_path: null
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code_partial
+        source_arrays:
+          - RsltArry
+          - PtntBscInfStruct
+        notes: 当前代码递归统计专利结果，不是 AppYrSttcArry 固定路径
+        status: 部分接入
+        fallback: 专利信息暂不可用
+
+      - key: certifications
+        submodule: 企业评级及标签认证
+        label: 企业认证
+        source_type: 行外-中数智汇
+        interface_code: "9000000003"
+        response_path: null
+        table_key: null
+        compute: count_nonzero
+        verified_by: current_code_partial
+        notes: 当前代码递归扫描多个认证字段，不是单一 response_path
+        status: 部分接入
+        fallback: 企业认证暂不可用
+
+      - key: is_green_industry
+        submodule: 企业评级及标签认证
+        label: 是否绿色产业
+        source_type: 行外-中数智汇
+        interface_code: "9000000006"
+        response_path: WhthrGreenIndus
+        table_key: null
+        compute: recursive_first
+        verified_by: current_code_partial
+        aliases:
+          - BODY.RetDataStruct.AttrPrtrtStruct.WhthrGreenIndus
+        notes: 当前代码以 WhthrGreenIndus 判定，不是 GreenListEntpStruct 存在即绿色
+        status: 部分接入
+        fallback: 绿色产业标志暂不可用
+
+      - key: is_small_micro
+        submodule: 企业评级及标签认证
+        label: 是否纳入小微企业目录
+        source_type: 行外-中数智汇
+        interface_code: "9000000006"
+        response_path: WhthrAbsrbSmlMcrListEntpCtlg
+        table_key: null
+        compute: recursive_first
+        verified_by: current_code_partial
+        aliases:
+          - BODY.RetDataStruct.AttrPrtrtStruct.WhthrAbsrbSmlMcrListEntpCtlg
+        notes: 当前代码读取 WhthrAbsrbSmlMcrListEntpCtlg 标量字段
+        status: 部分接入
+        fallback: 小微企业标志暂不可用
+
+      - key: credit_rating
+        submodule: 企业评级及标签认证
+        label: 信用评级
+        source_type: 行外-中数智汇
+        interface_code: "9000000006"
+        response_path: BODY.RetDataStruct.CrpnPrtrtStruct.CrdtEvltListArry[].CrdtLvl
+        table_key: null
+        status: 已接入
+        fallback: 信用评级暂不可用
+
+      - key: honor_list
+        submodule: 企业评级及标签认证
+        label: 荣誉榜单
+        source_type: 行外-中数智汇
+        interface_code: "9000000006"
+        response_path: BODY.RetDataStruct.QualfHnrStruct.BllbrdListArry[] (count)
+        table_key: null
+        status: 已接入
+        fallback: 荣誉榜单暂不可用
+
+      - key: tech_score
+        submodule: 企业评级及标签认证
+        label: 中知数通科技力评分/分层结果
+        source_type: 行外-中数智汇
+        interface_code: "9000000009"
+        response_path: BODY 内 Scor / StrtfcnRslt
+        table_key: null
+        compute: first_non_empty
+        status: 已接入
+        fallback: 科技力评分暂不可用
+
+      - key: tech_qualifications
+        submodule: 企业评级及标签认证
+        label: 科技资质情况
+        source_type: 行外-中数智汇
+        interface_code: "9000000009"
+        response_path: BODY 内 ScnsTechQualfArry 数组
+        table_key: null
+        compute: recursive_count
+        status: 已接入
+        fallback: 科技资质暂不可用
+
+      - key: tax_rating
+        submodule: 企业评级及标签认证
+        label: 税务评级
+        source_type: 行外-中数智汇
+        interface_code: "9000000005"
+        response_path: BODY.QryRsltArry[].TaxnEvltArry[].AutLvl (取最新年份)
+        table_key: null
+        status: 已接入
+        fallback: 税务评级暂不可用
+
+      - key: customs_credit_level
+        submodule: 企业评级及标签认证
+        label: 海关信用等级
+        source_type: 行外-中数智汇
+        interface_code: "9000000007"
+        response_path: null
+        table_key: null
+        compute: recursive_first
+        verified_by: current_code_partial
+        source_arrays:
+          - CstmsCrdtLvlStruct
+        notes: 当前代码读取 CstmsCrdtLvlStruct，不是 CstmsRgstEncdInfListArry
+        status: 部分接入
+        fallback: 海关信用等级暂不可用
+
+      - key: customs_registration
+        submodule: 企业评级及标签认证
+        label: 海关备案
+        source_type: 行外-中数智汇
+        interface_code: "9000000007"
+        response_path: null
+        table_key: null
+        compute: recursive_first
+        verified_by: current_code_partial
+        source_arrays:
+          - CstmsRcdInfStruct
+        notes: 当前代码读取 CstmsRcdInfStruct
+        status: 部分接入
+        fallback: 海关备案暂不可用
+
+  # ==============================================================
+  # 03 - 股权关联 (旧模板: 关键人 + 关键人物)
+  # ==============================================================
+  - id: equity
+    name: 股权关联
+    order: 3
+    fields:
+      - key: key_personnel
+        submodule: 关键人物
+        label: 关键管理人员及职务
+        source_type: 行外-中数智汇
+        interface_code: "9000000010"
+        response_path: BODY.QryRsltArry[].MainMgtPrsnArry[] (count)
+        table_key: null
+        status: 待接入
+        fallback: 关键人物信息暂不可用
+
+      - key: shareholders
+        submodule: 股东信息
+        label: 股东及出资信息
+        source_type: 行外-中数智汇
+        interface_code: "9000000011"
+        response_path: BODY.QryRsltArry[].ShrhlrInfArry[] (count)
+        table_key: null
+        status: 待接入
+        fallback: 股东信息暂不可用
+
+      - key: legal_person_investments
+        submodule: 关联方信息
+        label: 法定代表人对外投资
+        source_type: 行外-中数智汇
+        interface_code: "9000000014"
+        response_path: null
+        table_key: null
+        compute: manual_confirm
+        verified_by: pending_bank_confirm
+        source_arrays:
+          - EntpExtInvsInfArry
+          - LPExtInvsArry
+        notes: 当前代码主要使用 EntpExtInvsInfArry，部分逻辑兼容 LPExtInvsArry
+        status: 待确认
+        fallback: 对外投资信息暂不可用
+
+      - key: company_investments
+        submodule: 关联方信息
+        label: 企业对外投资
+        source_type: 行外-中数智汇
+        interface_code: "9000000031"
+        response_path: BODY.QryRsltArry[].EntpExtInvsInfArry[] (count)
+        table_key: null
+        status: 待接入
+        fallback: 对外投资信息暂不可用
+
+      - key: branches
+        submodule: 关联方信息
+        label: 分支机构
+        source_type: 行外-中数智汇
+        interface_code: "9000000030"
+        response_path: BODY.QryRsltArry[].BrnchBrchArry[] (count)
+        table_key: null
+        status: 待接入
+        fallback: 分支机构信息暂不可用
+
+      - key: holding_subsidiaries
+        submodule: 关联方信息
+        label: 参股控股企业
+        source_type: 行外-中数智汇
+        interface_code: "9000000033"
+        response_path: null
+        table_key: null
+        compute: manual_confirm
+        verified_by: pending_bank_confirm
+        source_arrays:
+          - PtcHldgInfArry
+        notes: 当前代码使用 PtcHldgInfArry，不建议写 RltdPrtsArry
+        status: 待确认
+        fallback: 参股控股信息暂不可用
+
+      - key: multi_node_relations
+        submodule: 关联方信息
+        label: 多节点关联方
+        source_type: 行外-中数智汇
+        interface_code: "9000000034"
+        response_path: null
+        table_key: null
+        compute: derived
+        verified_by: pending_bank_confirm
+        source_arrays:
+          - NodeArry
+          - RelaArry
+        notes: 当前代码使用 NodeArry + RelaArry 组合，不是单一路径
+        status: 待确认
+        fallback: 关联方信息暂不可用
+
+      - key: equity_structure
+        submodule: 股权穿透
+        label: 企业族谱（股权结构图）
+        source_type: 行外-中数智汇
+        interface_code: "9000000012"
+        response_path: BODY.QryRsltArry[].EntpFmlDataArry[] (NodeArry + RelaArry)
+        table_key: null
+        status: 待接入
+        fallback: 股权结构图暂不可用
+
+      - key: control_path
+        submodule: 股权穿透
+        label: 控制路径穿透
+        source_type: 行外-中数智汇
+        interface_code: "9000000013"
+        response_path: BODY.QryRsltArry[].CtrlPthDataArry[] (NodeArry + RelaArry)
+        table_key: null
+        status: 待接入
+        fallback: 穿透查询暂不可用
+
+      - key: ultimate_beneficiary
+        submodule: 股权穿透
+        label: 最终受益人
+        source_type: 行外-中数智汇
+        interface_code: "9000000017"
+        response_path: null
+        table_key: null
+        compute: manual_confirm
+        verified_by: pending_bank_confirm
+        source_arrays:
+          - UltmBenfOwrArry
+        notes: 当前代码使用 UltmBenfOwrArry，不建议写 BnftOwnrChrtRelaNodeArry
+        status: 待确认
+        fallback: 最终受益人信息暂不可用
+
+      - key: suspected_controller_count
+        submodule: 股权穿透
+        label: 疑似实际控制人数量
+        source_type: 行外-中数智汇
+        interface_code: "9000000067"
+        response_path: BODY.RsltArry[].ActlCtrlrToMainInvsPthStruct.NodeArry[] (count)
+        table_key: null
+        status: 待接入
+        fallback: 实际控制人信息暂不可用
+
+      - key: mobile_holding_subs
+        submodule: 关联方信息
+        label: 移动端参控股子公司
+        source_type: 行外-中数智汇
+        interface_code: "9000000032"
+        response_path: null
+        table_key: null
+        compute: manual_confirm
+        verified_by: pending_bank_confirm
+        source_arrays:
+          - RelaPartyArry
+        notes: 当前代码使用 RelaPartyArry，不建议写 MbleHldgSubCoArry
+        status: 待确认
+        fallback: 参控股信息暂不可用
+
+  # ==============================================================
+  # 04 - 经营能力 (旧模板: 经营能力 + 资金需求)
+  # ==============================================================
+  - id: business
+    name: 经营能力
+    order: 4
+    fields:
+      - key: annual_report_count
+        submodule: 营收与财报
+        label: 近 1-3 年营收数据及变动情况
+        source_type: 行外-年报
+        interface_code: "9000000018"
+        response_path: null
+        table_key: null
+        compute: join_by_key
+        verified_by: current_code_partial
+        source_arrays:
+          - EntpAnulRprtBscInfArry
+          - AstSituInfArry
+        notes: 当前代码按年报主键关联后取近年数据，不是单一路径
+        status: 部分接入
+        fallback: 营收数据暂不可用
+
+      - key: financial_statements
+        submodule: 营收与财报
+        label: 财报及科目
+        source_type: 行外-年报
+        interface_code: "9000000018"
+        response_path: BODY.RsltStruct.AstSituInfArry[] (仅资产状况, 无详细科目)
+        table_key: null
+        status: 待确认
+        fallback: 年报仅提供资产状况汇总，无明细科目
+
+      - key: industry_category
+        submodule: 行业竞争分析
+        label: 企业所属行业
+        source_type: 行外-中数智汇
+        interface_code: "9000000001"
+        response_path: BODY.QryRsltArry[].EntpBscInfArry[].IdyNm
+        table_key: null
+        status: 已接入
+        compute: first_non_empty
+        verified_by: current_code
+        aliases:
+          - BODY.QryRsltArry[].EntpBsicInfArry[].IdyNm
+        fallback: 行业信息暂不可用
+
+      - key: bidding_info
+        submodule: 行业竞争分析
+        label: 企业招投标信息
+        source_type: 行外-中数智汇
+        interface_code: "9000000019"
+        response_path: BODY.QryRsltArry[].BidInfArry[] (count)
+        table_key: null
+        status: 已接入
+        fallback: 招投标信息暂不可用
+
+      - key: inspection_count
+        submodule: 行业竞争分析
+        label: 抽查检查信息
+        source_type: 行外-中数智汇
+        interface_code: "9000000069"
+        response_path: BODY.QryRsltArry[].InspnArry[]
+        table_key: null
+        compute: recursive_count
+        verified_by: pending_bank_confirm
+        source_arrays:
+          - InspnArry
+        notes: 当前 services 未稳定提取，待银行内网确认
+        status: 待确认
+        fallback: 抽查检查信息暂不可用
+
+      - key: copyright_count
+        submodule: 行业竞争分析
+        label: 著作权数量
+        source_type: 行外-中数智汇
+        interface_code: "9000000071"
+        response_path: BODY.RsltStruct.SwCpyrtRgstntInfArry[]
+        table_key: null
+        compute: recursive_count
+        verified_by: pending_bank_confirm
+        source_arrays:
+          - SwCpyrtRgstntInfArry
+        notes: 当前 services 未稳定提取，待银行内网确认
+        status: 待确认
+        fallback: 著作权信息暂不可用
+
+      - key: trademark_count
+        submodule: 行业竞争分析
+        label: 商标数量
+        source_type: 行外-中数智汇
+        interface_code: "9000000072"
+        response_path: BODY.TrdmrkNmLenSttcCntArry[] (count)
+        table_key: null
+        status: 已接入
+        fallback: 商标信息暂不可用
+
+      - key: chattel_mortgage
+        submodule: 资金需求
+        label: 动产抵押
+        source_type: 行外-中数智汇
+        interface_code: "9000000023"
+        response_path: null
+        table_key: null
+        compute: multi_array_count
+        verified_by: current_code_partial
+        source_arrays:
+          - ChtlMrtgRgstInfArry
+        notes: 当前逻辑可能聚合 0233-0238 多个接口，YAML 先记录主接口
+        status: 部分接入
+        fallback: 动产抵押信息暂不可用
+
+      - key: equity_pledge
+        submodule: 资金需求
+        label: 股权出质
+        source_type: 行外-中数智汇
+        interface_code: "9000000020"
+        response_path: null
+        table_key: null
+        compute: multi_array_count
+        verified_by: current_code_partial
+        source_arrays:
+          - StkRghtPlgBscInfArry
+        notes: 当前逻辑可能聚合 0230-0232 多个接口，YAML 先记录主接口
+        status: 部分接入
+        fallback: 股权出质信息暂不可用
+
+      - key: financing
+        submodule: 资金需求
+        label: 融资情况
+        source_type: 行外-中数智汇
+        interface_code: "9000000029"
+        response_path: null
+        table_key: null
+        compute: derived
+        verified_by: current_code_partial
+        source_arrays:
+          - FincngEvArry
+          - InvsEvArry
+        notes: 当前代码合并融资事件和投资事件，不能只写 InvsEvArry
+        status: 部分接入
+        fallback: 融资信息暂不可用
+
+  # ==============================================================
+  # 05 - 财务分析
+  # 数据源仅 9000000018.AstSituInfArry[] (8个字段 + 5个衍生指标)
+  # 需求文档中的 59 个明细字段(销售费用/应收账款等)中数智汇年报不提供
+  # ==============================================================
+  - id: finance
+    name: 财务分析
+    order: 5
+    fields:
+      # --- 源字段: BODY.RsltStruct.AstSituInfArry[] ---
+      - key: fin_total_revenue
+        submodule: 利润表
+        label: 营业总收入
+        source_type: 行外-年报
+        interface_code: "9000000018"
+        response_path: BODY.RsltStruct.AstSituInfArry[].AstSituBsnsTotIncm
+        table_key: revenue
+        compute: join_by_key
+        verified_by: current_code_partial
+        source_arrays:
+          - EntpAnulRprtBscInfArry
+          - AstSituInfArry
+        notes: 需要通过年报主表与财务表主键关联
+        status: 待接入
+        fallback: —
+
+      - key: fin_main_revenue
+        submodule: 利润表
+        label: 主营业务收入
+        source_type: 行外-年报
+        interface_code: "9000000018"
+        response_path: BODY.RsltStruct.AstSituInfArry[].AstSituBsnsTotIncmMainBsn
+        table_key: main_revenue
+        compute: join_by_key
+        verified_by: current_code_partial
+        source_arrays:
+          - EntpAnulRprtBscInfArry
+          - AstSituInfArry
+        notes: 需要通过年报主表与财务表主键关联
+        status: 待接入
+        fallback: —
+
+      - key: fin_net_profit
+        submodule: 利润表
+        label: 净利润
+        source_type: 行外-年报
+        interface_code: "9000000018"
+        response_path: BODY.RsltStruct.AstSituInfArry[].AstSituNetPrft
+        table_key: net_profit
+        compute: join_by_key
+        verified_by: current_code_partial
+        source_arrays:
+          - EntpAnulRprtBscInfArry
+          - AstSituInfArry
+        notes: 需要通过年报主表与财务表主键关联
+        status: 待接入
+        fallback: —
+
+      - key: fin_total_profit
+        submodule: 利润表
+        label: 利润总额
+        source_type: 行外-年报
+        interface_code: "9000000018"
+        response_path: BODY.RsltStruct.AstSituInfArry[].AstSituPrftTotAmt
+        table_key: total_profit
+        compute: join_by_key
+        verified_by: current_code_partial
+        source_arrays:
+          - EntpAnulRprtBscInfArry
+          - AstSituInfArry
+        notes: 需要通过年报主表与财务表主键关联
+        status: 待接入
+        fallback: —
+
+      - key: fin_total_assets
+        submodule: 资产负债表
+        label: 资产总计
+        source_type: 行外-年报
+        interface_code: "9000000018"
+        response_path: BODY.RsltStruct.AstSituInfArry[].AstSituAstTotAmt
+        table_key: total_assets
+        compute: join_by_key
+        verified_by: current_code_partial
+        source_arrays:
+          - EntpAnulRprtBscInfArry
+          - AstSituInfArry
+        notes: 需要通过年报主表与财务表主键关联
+        status: 待接入
+        fallback: —
+
+      - key: fin_total_liabilities
+        submodule: 资产负债表
+        label: 负债总计
+        source_type: 行外-年报
+        interface_code: "9000000018"
+        response_path: BODY.RsltStruct.AstSituInfArry[].AstSituLbyTotAmt
+        table_key: total_liabilities
+        compute: join_by_key
+        verified_by: current_code_partial
+        source_arrays:
+          - EntpAnulRprtBscInfArry
+          - AstSituInfArry
+        notes: 需要通过年报主表与财务表主键关联
+        status: 待接入
+        fallback: —
+
+      - key: fin_total_equity
+        submodule: 资产负债表
+        label: 所有者权益合计
+        source_type: 行外-年报
+        interface_code: "9000000018"
+        response_path: BODY.RsltStruct.AstSituInfArry[].AstSituOwnrEqtTot
+        table_key: total_equity
+        compute: join_by_key
+        verified_by: current_code_partial
+        source_arrays:
+          - EntpAnulRprtBscInfArry
+          - AstSituInfArry
+        notes: 需要通过年报主表与财务表主键关联
+        status: 待接入
+        fallback: —
+
+      - key: fin_tax_paid
+        submodule: 利润表
+        label: 纳税总额
+        source_type: 行外-年报
+        interface_code: "9000000018"
+        response_path: BODY.RsltStruct.AstSituInfArry[].TaxPayTotAmt
+        table_key: tax_paid
+        compute: join_by_key
+        verified_by: current_code_partial
+        source_arrays:
+          - EntpAnulRprtBscInfArry
+          - AstSituInfArry
+        notes: 需要通过年报主表与财务表主键关联
+        status: 待接入
+        fallback: —
+
+      # --- 衍生指标 (annual_financial_table.py 计算) ---
+      - key: fin_revenue_yoy
+        submodule: 利润表
+        label: 营业总收入同比(%)
+        source_type: 行外-年报
+        interface_code: "9000000018"
+        response_path: (derived) AstSituBsnsTotIncm YoY
+        table_key: revenue_yoy
+        compute: derived
+        verified_by: current_code_partial
+        notes: 由 annual_financial_table.py 计算，不是 ESB 直接字段
+        status: 待接入
+        fallback: —
+
+      - key: fin_net_profit_yoy
+        submodule: 利润表
+        label: 净利润同比(%)
+        source_type: 行外-年报
+        interface_code: "9000000018"
+        response_path: (derived) AstSituNetPrft YoY
+        table_key: net_profit_yoy
+        compute: derived
+        verified_by: current_code_partial
+        notes: 由 annual_financial_table.py 计算，不是 ESB 直接字段
+        status: 待接入
+        fallback: —
+
+      - key: fin_net_margin
+        submodule: 盈利能力
+        label: 净利率(%)
+        source_type: 行外-年报
+        interface_code: "9000000018"
+        response_path: (derived) AstSituNetPrft / AstSituBsnsTotIncm × 100
+        table_key: net_margin
+        compute: derived
+        verified_by: current_code_partial
+        notes: 由 annual_financial_table.py 计算，不是 ESB 直接字段
+        status: 待接入
+        fallback: —
+
+      - key: fin_debt_ratio
+        submodule: 偿还能力
+        label: 资产负债率(%)
+        source_type: 行外-年报
+        interface_code: "9000000018"
+        response_path: (derived) AstSituLbyTotAmt / AstSituAstTotAmt × 100
+        table_key: debt_ratio
+        compute: derived
+        verified_by: current_code_partial
+        notes: 由 annual_financial_table.py 计算，不是 ESB 直接字段
+        status: 待接入
+        fallback: —
+
+      - key: fin_le_plus_equity
+        submodule: 资产负债表
+        label: 负债和股东权益总计
+        source_type: 行外-年报
+        interface_code: "9000000018"
+        response_path: (derived) AstSituLbyTotAmt + AstSituOwnrEqtTot
+        table_key: le_plus_equity
+        compute: derived
+        verified_by: current_code_partial
+        notes: 由 annual_financial_table.py 计算，不是 ESB 直接字段
+        status: 待接入
+        fallback: —
+
+  # ==============================================================
+  # 06 - 风险提示 (旧模板: 风险合规 + 风险提示)
+  # ==============================================================
+  - id: risk
+    name: 风险提示
+    order: 6
+    fields:
+      # --- 涉诉风险 ---
+      - key: risk_judgments
+        submodule: 涉诉风险
+        label: 裁判文书
+        source_type: 行外-中数智汇
+        interface_code: "9000000036"
+        response_path: BODY.QryRsltArry[].EntpJdgntWritInfArry[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 裁判文书信息暂不可用
+
+      - key: risk_court_sessions
+        submodule: 涉诉风险
+        label: 开庭公告
+        source_type: 行外-中数智汇
+        interface_code: "9000000037"
+        response_path: BODY.QryRsltArry[].OpnCrtSnAncmArry[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 开庭公告暂不可用
+
+      - key: risk_court_announcements
+        submodule: 涉诉风险
+        label: 法院公告
+        source_type: 行外-中数智汇
+        interface_code: "9000000038"
+        response_path: BODY.QryRsltArry[].CrtAncmArry[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 法院公告暂不可用
+
+      - key: risk_executed_person
+        submodule: 涉诉风险
+        label: 限制消费被执行人
+        source_type: 行外-中数智汇
+        interface_code: "9000000039"
+        response_path: BODY.QryRsltArry[].RstrctCnsmnBeExecPrsn[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 被执行人信息暂不可用
+
+      - key: risk_discredited
+        submodule: 涉诉风险
+        label: 失信被执行人
+        source_type: 行外-中数智汇
+        interface_code: "9000000040"
+        response_path: BODY.QryRsltArry[].BeExecPrsnInfArry[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 失信被执行人信息暂不可用
+
+      - key: risk_execution_info
+        submodule: 涉诉风险
+        label: 执行信息
+        source_type: 行外-中数智汇
+        interface_code: "9000000041"
+        response_path: BODY.QryRsltArry[].ExecInfArry[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 执行信息暂不可用
+
+      - key: risk_closed_cases
+        submodule: 涉诉风险
+        label: 终本案件
+        source_type: 行外-中数智汇
+        interface_code: "9000000055"
+        response_path: BODY.QryRsltArry[].ClsCaseArray[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 终本案件信息暂不可用
+
+      - key: risk_judicial_assistance
+        submodule: 涉诉风险
+        label: 司法协助
+        source_type: 行外-中数智汇
+        interface_code: "9000000052"
+        response_path: BODY.QryRsltArry[].JdctrHlpArry[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 司法协助信息暂不可用
+
+      # --- 经营风险 ---
+      - key: risk_abnormal_operation
+        submodule: 经营风险
+        label: 经营异常
+        source_type: 行外-中数智汇
+        interface_code: "9000000051"
+        response_path: BODY.QryRsltArry[].CrpnAbnArry[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 经营异常信息暂不可用
+
+      - key: risk_tax_penalty
+        submodule: 经营风险
+        label: 税务行政处罚
+        source_type: 行外-中数智汇
+        interface_code: "9000000047"
+        response_path: BODY.QryRsltArry[].TaxnAdmntvPnltyArry[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 税务行政处罚暂不可用
+
+      - key: risk_major_tax_violation
+        submodule: 经营风险
+        label: 重大税收违法
+        source_type: 行外-中数智汇
+        interface_code: "9000000048"
+        response_path: BODY.QryRsltArry[].MjrRevIlglArry[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 重大税收违法暂不可用
+
+      - key: risk_commercial_penalty
+        submodule: 经营风险
+        label: 工商行政处罚
+        source_type: 行外-中数智汇
+        interface_code: "9000000049"
+        response_path: BODY.QryRsltArry[].IdyCmrcAdmntvPnltyArry[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 工商行政处罚暂不可用
+
+      - key: risk_env_penalty
+        submodule: 经营风险
+        label: 环保行政处罚
+        source_type: 行外-中数智汇
+        interface_code: "9000000050"
+        response_path: BODY.QryRsltArry[].EnvPrtctAdmntvPnltyArry[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 环保行政处罚暂不可用
+
+      - key: risk_regulatory_penalty
+        submodule: 经营风险
+        label: 新监管处罚
+        source_type: 行外-中数智汇
+        interface_code: "9000000054"
+        response_path: BODY.QryRsltArry[].PnltyEntpInfArry[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 监管处罚暂不可用
+
+      # --- 金融风险 ---
+      - key: risk_finance_blacklist
+        submodule: 金融风险
+        label: 涉金融黑名单
+        source_type: 行外-中数智汇
+        interface_code: "9000000053"
+        response_path: BODY.QryRsltArry[].RfrFinBlklistArry[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 涉金融黑名单暂不可用
+
+      - key: risk_serious_illegal
+        submodule: 金融风险
+        label: 严重违法失信企业
+        source_type: 行外-中数智汇
+        interface_code: "9000000042"
+        response_path: BODY.QryRsltArry[].SvrIlglLsCrdtEntpListArry[] (count)
+        table_key: null
+        compute: recursive_count
+        verified_by: current_code
+        notes: 当前代码通过 RISK_ARRAYS 递归统计风险数组
+        status: 已接入
+        fallback: 严重违法失信暂不可用
+
+      - key: risk_hit_list
+        submodule: 金融风险
+        label: 命中风险名单
+        source_type: 行外-中数智汇
+        interface_code: "9000000035"
+        response_path: null
+        table_key: null
+        compute: manual_confirm
+        verified_by: pending_bank_confirm
+        notes: 当前代码调用接口但未明确纳入风险统计逻辑
+        status: 待确认
+        fallback: 命中风险名单暂不可用
+
+      - key: risk_big_data
+        submodule: 金融风险
+        label: 企业风险大数据(大报文)
+        source_type: 行外-中数智汇
+        interface_code: "9000000056"
+        response_path: null
+        table_key: null
+        compute: multi_array_count
+        verified_by: current_code_partial
+        source_arrays:
+          - LosCrdtBlklistArry
+        notes: 当前代码聚合多个风险数组，不能只写 LosCrdtBlklistArry
+        status: 部分接入
+        fallback: 风险大数据暂不可用
+
+  # ==============================================================
+  # 07 - 行内合作情况 (旧模板: 行内信息，接口码待确认)
+  # ==============================================================
+  - id: crm
+    name: 行内合作情况
+    order: 7
+    fields:
+      - key: crm_account_status
+        submodule: 账户信息
+        label: 对公账户状态
+        source_type: 行内-CRM
+        interface_code: null
+        response_path: null
+        table_key: null
+        status: 待确认
+        fallback: 账户状态暂不可用
+
+      - key: crm_deposit_balance
+        submodule: 账户信息
+        label: 存款余额
+        source_type: 行内-CRM
+        interface_code: null
+        response_path: null
+        table_key: null
+        status: 待确认
+        fallback: 存款余额暂不可用
+
+      - key: crm_loan_info
+        submodule: 信贷信息
+        label: 贷款信息
+        source_type: 行内-CRM
+        interface_code: null
+        response_path: null
+        table_key: null
+        status: 待确认
+        fallback: 贷款信息暂不可用
+
+      - key: crm_product_holdings
+        submodule: 产品持有
+        label: 持有产品列表
+        source_type: 行内-CRM
+        interface_code: null
+        response_path: null
+        table_key: null
+        status: 待确认
+        fallback: 产品持有信息暂不可用
+
+  # ==============================================================
+  # 08 - 访谈脚本 (纯 AI 生成)
+  # ==============================================================
+  - id: interview
+    name: 访谈脚本
+    order: 8
+    fields:
+      - key: interview_questions
+        submodule: 现场访谈
+        label: 访谈问题清单
+        source_type: AI生成
+        interface_code: null
+        response_path: null
+        table_key: null
+        status: 待补充
+        fallback: 访谈脚本待后续结合AI智能分析、风险提示和营销方案生成
+
+  # ==============================================================
+  # 09 - 营销方案 (AI + 规则生成)
+  # ==============================================================
+  - id: marketing
+    name: 营销方案
+    order: 9
+    fields:
+      - key: marketing_product_match
+        submodule: 产品推荐
+        label: 对公产品匹配推荐
+        source_type: 规则生成
+        interface_code: null
+        response_path: null
+        table_key: null
+        status: 待补充
+        fallback: 营销方案暂不可用，建议结合企业经营状况选择对公产品
+
+      - key: marketing_strategy
+        submodule: 营销策略
+        label: 营销策略建议
+        source_type: AI生成
+        interface_code: null
+        response_path: null
+        table_key: null
+        status: 待补充
+        fallback: 营销策略待后续根据客户画像和产品匹配生成

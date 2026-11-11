@@ -1,0 +1,33 @@
+# 虚拟环境与缓存
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 本地环境与密钥（改用 env_file / 挂载注入）
+.env
+.env.local
+
+# 运行时产物（改用挂载卷持久化）
+temp/
+outputs/
+logs/
+*.log
+
+# 版本控制与 IDE
+.git/
+.gitignore
+.vscode/
+.idea/
+*.swp
+
+# 系统与文档
+.DS_Store
+README.md
+*.docx
+test_report_request.json
